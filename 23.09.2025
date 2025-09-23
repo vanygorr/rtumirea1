@@ -1,0 +1,56 @@
+/*#include <iostream>
+
+int main(){
+    int a;
+    int sum = 0;
+    std::cin >> a;
+    std::cout << a << "\n";
+    int arr[a];
+    for (int i= 0; i < a;i++){
+        arr[i] = rand();
+        std::cout << arr[i] << " ";
+        sum += arr[i];
+    }
+    std::cout << "\n" << sum/a;
+    return 0;
+}
+#include <iostream>
+#include <cstdlib>
+int main(){
+    int a;
+    std::cin >> a;
+    int chet = 0;
+    int nechet = 0;
+    int arr[a];
+    for (int i= 0; i < a;i++){
+        arr[i] = rand();
+        if (arr[i] % 2 == 0){
+            chet ++;
+        }
+        else{
+            nechet ++;
+            }
+    }
+    std::cout << chet << " " << nechet;
+    return 0;
+}
+#include <iostream>
+#include <cstdlib>
+int main(){
+    int a;
+    std::cin >> a;
+    int max = 0;
+    int min = 0;
+    int arr[a];
+    for (int i= 0; i < a;i++){
+        arr[i] = i;
+        if (arr[i] > max){
+            max = arr[i];
+        }
+        if(arr[i] < arr[0]){
+            min = arr[i];
+        }
+    }
+    std::cout << max << " " << min;
+    return 0;
+}*/
