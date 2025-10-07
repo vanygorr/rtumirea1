@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    vector<int> perv; 
+    vector<int> vtor;
+    vector<int> tret;
+    string Familiy, Imya;
+    int first, second, third;
+    for(int i = 0; i < n; i++){
+        cout << "Введите фамилию, имя и три критерия:" << "\n";
+        cin >> Familiy >> Imya >> first >> second >> third;
+        perv.push_back(first);
+        vtor.push_back(second);
+        tret.push_back(third);
+        }
+    double sum1 = accumulate(perv.begin(), perv.end(), 0.0);
+    double average1 = sum1 / perv.size();
+    double sum2 = accumulate(vtor.begin(), vtor.end(), 0.0);
+    double average2 = sum2 / vtor.size();
+    double sum3 = accumulate(tret.begin(), tret.end(), 0.0);
+    double average3 = sum3 / tret.size();
+        cout << fixed << setprecision(1) << average1 << " " << average2 << " " << average3;
+    
+    return 0;
+}
