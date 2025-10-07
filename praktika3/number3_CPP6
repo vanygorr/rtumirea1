@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int n, m, w;
+    std::cin >> n >> m >> w;
+
+    std::vector<std::vector<char>> pole(n, std::vector<char>(m, '0'));
+
+    for (int k = 0; k < w; k++) {
+        int r, c;
+        std::cin >> r >> c;
+        r--; c--;
+        pole[r][c] = '*';
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (pole[i][j] == '*') continue;
+
+            int cnt = 0;
+            for (int di = -1; di <= 1; di++) {
+                for (int dj = -1; dj <= 1; dj++) {
+                    int ni = i + di, nj = j + dj;
+                    if (ni >= 0 && ni < n && nj >= 0 && nj < m && pole[ni][nj] == '*')
+                        cnt++;
+                }
+            }
+            pole[i][j] = '0' + cnt;
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++)
+            std::cout << pole[i][j];
+        std::cout << std::endl;
+    }
+
+}
