@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> KFC;
+    int total = 0;
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cin >> x;
+
+        if (!KFC.empty() && KFC.back() == x) {
+            KFC.pop_back(); 
+            total += 2;       
+        } else {
+            KFC.push_back(x);
+        }
+    }
+
+    std::cout << total;
+
+}
