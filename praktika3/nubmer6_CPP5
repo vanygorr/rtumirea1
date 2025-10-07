@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdlib>
+
+int main() {
+    int n = 7;
+    int m = 7;
+    int arr[n][m];
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            arr[i][j] = std::rand()%10; 
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    int sum = 0;
+    int diag = (n < m) ? n : m; 
+    for (int i = 0; i < diag; i++) {
+        sum += arr[i][i];
+    }
+
+    std::cout << "Сумма элементов главной диагонали: " << sum << std::endl;
+
+}
