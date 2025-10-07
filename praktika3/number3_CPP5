@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdlib>
+
+int main() {
+    int r;
+    std::cout << "Размер массива?" << "\n";
+    std::cin >> r;
+    int arr[r];
+    
+    for (int i = 0; i < r; i++) {
+        arr[i] = rand()%10;
+    }
+    
+    int min = arr[0];
+    int max = arr[0];
+    
+    for (int i = 0; i < r; i++) {
+        if (arr[i] < min) {
+            min = arr[i]; }
+            
+        if (arr[i] > max) {
+            max = arr[i]; }
+    }
+    std::cout << "Минимум:" << min << " " << "Максимум:" << max;
+}
