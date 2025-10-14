@@ -1,0 +1,30 @@
+#include <cctype>
+#include <iostream>
+#include <string>
+using namespace std;
+bool raven(string& str1, string& str2)
+{
+    if (str1.length() != str2.length())
+        return false;
+
+    for (int i = 0; i < str1.length(); ++i) {
+        if (tolower(str1[i]) != tolower(str2[i]))
+            return false;
+    }
+
+    return true;
+}
+
+int main()
+{
+    string str1;
+    string str2;
+    cout << "Введите две строки:\n";
+    cin >> str1 >> str2;
+    if (raven(str1, str2))
+        cout << "Строки одинаковы" << endl;
+    else
+        cout << "Строки различны" << endl;
+
+    return 0;
+}
