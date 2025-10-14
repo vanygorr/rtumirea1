@@ -1,0 +1,44 @@
+#include <iostream>
+void removeDuplicates(int* arr, int& size) {
+    int* temp = new int[size];
+    int tempSize = 0;
+
+    for (int i = 0; i < size; ++i) {
+        bool isDuplicate = false;
+        for (int j = 0; j < tempSize; ++j) {
+            if (arr[i] == temp[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            temp[tempSize] = arr[i];
+            ++tempSize;
+        }
+    }
+    for (int i = 0; i < tempSize; ++i) {
+        arr[i] = temp[i];
+    }
+    delete[] temp;
+    size = tempSize;
+}
+
+int main() {
+    int* arr = nullptr;
+    int size;
+    std::cout << "Введите размер массива: ";
+    std::cin >> size;
+    arr = new int[size];
+    std::cout << "Введите элементы массива:\n";
+    for (int i = 0; i < size; ++i) {
+        std::cin >> arr[i];
+    }
+    removeDuplicates(arr, size);
+    std::cout << "Массив без дубликатов: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+    delete[] arr;
+    return 0;
+}
