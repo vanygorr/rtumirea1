@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+long long stepen(int a, int n){
+    if(n == 0){
+        return 1;
+    }
+    else{
+        return a * stepen(a,n-1);
+    }
+}
+int main(){
+    int a,n;
+    cout << "Введите число и его степень\n";
+    cin >> a >> n;
+    long long result = stepen(a,n);
+    cout << result;
+}
