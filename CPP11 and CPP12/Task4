@@ -1,0 +1,19 @@
+#include <iostream>
+#include <forward_list>
+using namespace std;
+int main() {
+    forward_list<int> flist;
+    auto it = flist.before_begin();
+    it = flist.insert_after(it, 5);
+    it = flist.insert_after(it, 4);
+    it = flist.insert_after(it, 3);
+    it = flist.insert_after(it, 2);
+    it = flist.insert_after(it, 1);
+   
+    for (int num : flist) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
