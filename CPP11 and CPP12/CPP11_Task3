@@ -1,0 +1,26 @@
+#include <iostream>
+#include <list>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    list<string> students = {"Иванов", "Петров", "Сидоров", "АлексееВ", "Борисов"};
+    students.sort();
+    students.remove_if([](const string& name) {
+        if (!name.empty()) {
+            if (name.size() >= 2) {
+                unsigned char first_byte = static_cast<unsigned char>(name[0]);
+                unsigned char second_byte = static_cast<unsigned char>(name[1]);
+                return first_byte == 0xD0 && second_byte == 0x90;
+            }
+        }
+        return false;
+    });
+
+    for (const auto& name : students) {
+        cout << name << " ";
+    }
+    return 0;
+}
