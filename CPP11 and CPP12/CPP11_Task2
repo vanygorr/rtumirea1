@@ -1,0 +1,23 @@
+#include <iostream>
+#include <deque>
+#include <string>
+
+using namespace std;
+
+int main() {
+    deque<string> orders;
+
+    orders.push_back("Заказ 1");
+    orders.push_back("Заказ 2");
+    orders.push_back("Заказ 3");
+    orders.push_front("Срочный заказ A");
+    orders.push_back("Заказ 4");
+    orders.push_front("Срочный заказ B");
+
+    while (!orders.empty()) {
+        cout << orders.front() << ", ";
+        orders.pop_front();
+    }
+
+    return 0;
+}
