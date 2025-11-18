@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <set>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<string> words;
+    string word;
+    while (cin >> word) {
+        words.push_back(word);
+    }
+    if (words.empty()) return 0;
+    set<char> common_letters(words[0].begin(), words[0].end());
+    for (size_t i = 1; i < words.size(); ++i) {
+        set<char> current_letters(words[i].begin(), words[i].end());
+        set<char> intersection;
+        set_intersection(common_letters.begin(), common_letters.end(),
+                         current_letters.begin(), current_letters.end(),
+                         inserter(intersection, intersection.begin()));
+        common_letters = intersection;
+    }
+    for (auto ch : common_letters) {
+        cout << ch;
+    }
+    cout << endl;
+    return 0;
+}
